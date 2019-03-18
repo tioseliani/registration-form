@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+    <h1 class="title">Registration Form</h1>
+    <div class="registration-form">
+        <form action="" class="form" method="POST">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" placeholder="First Name" id="fname">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" placeholder="Last Name" id="lname">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" placeholder="e-mail" id="email">
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="Password" id="password">
+            <button class="btn" id="getUsers">Register</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        const getUsers = document.querySelector('#getUsers');
+        const result = document.querySelector('#result');
+        
+        getUsers.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            fetch(`${location.href}users`)
+            .then(res => res.json())
+            .then(users => {
+                console.table(users);
+            })
+        })
+    </script>
+</body>
+</html>
