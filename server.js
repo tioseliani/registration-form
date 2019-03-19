@@ -17,6 +17,8 @@ app.post("/", (req, res) => {
     Users.push(req.body);
     res.redirect('/');
 })
+
+console.log(1)
 app.listen(PORT, () => {
     console.log("http://localhost:" + PORT);
 });
